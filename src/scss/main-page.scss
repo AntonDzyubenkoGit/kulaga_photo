@@ -1,0 +1,609 @@
+//===FIRST_SCREEN=============================================================
+.first-screen {
+  // background-image: url("../img/main-page/first_screen.webp");
+  // background-image: url("../img/main-page/1.webp");
+  // background-image: url("../img/main-page/2.webp");
+  // background-image: url("../img/main-page/3.webp");
+  background-image: url("../img/main-page/4.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  @include adaptiveValue("padding-bottom", 20, 5);
+
+  @media (max-width: $mobile) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    row-gap: rem(15);
+  }
+
+  @media (min-width: rem(1440)) {
+    background-position: center 25%;
+    background-image: url("../img/main-page/2.webp");
+  }
+  @media (max-width: rem(1440)) {
+    background-position: center;
+  }
+  @media (max-width: rem(400)) {
+    background-position: 55% center;
+  }
+
+  // .first-screen__arrow
+  &__arrow {
+    padding-left: 5%;
+    animation: arrow 3s linear infinite;
+    @media (max-width: $mobile) {
+      padding-left: 0;
+    }
+
+    @keyframes arrow {
+      0% {
+        transform: translateY(-100%);
+      }
+      50% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(-100%);
+      }
+    }
+  }
+  // .first-screen__title
+  &__title {
+    position: relative;
+    padding-right: 5%;
+    font-family: "Princess_Diana";
+    @include adaptiveValue("font-size", 32, 18);
+    letter-spacing: 0.1em;
+    color: $mainDarkColor;
+    z-index: 2;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: -5%;
+      background: linear-gradient(180deg, rgba(246, 246, 246, 0) 0%, #f6f6f6 100%);
+      z-index: -1;
+
+      @include adaptiveValue("padding-top", 35, 25);
+      @include adaptiveValue("padding-bottom", 65, 50);
+      @include adaptiveValue("padding-left", 20, 0);
+      @include adaptiveValue("padding-right", 20, 0);
+
+      @media (max-width: $mobile) {
+        left: 0;
+      }
+    }
+
+    @media (max-width: $mobile) {
+      width: 100%;
+      text-align: center;
+      padding: 0 rem(5);
+      margin-bottom: rem(5);
+    }
+  }
+}
+
+//===PRESENTATION=============================================================
+.presentation-main {
+  // .presentation-main__container
+  &__container {
+    display: flex;
+    flex-direction: column;
+    @include adaptiveValue("row-gap", 70, 20);
+  }
+  // .presentation-main__photo
+  &__photo {
+    display: grid;
+
+    @media (min-width: $tablet) {
+      grid-template-columns: repeat(2, 1fr);
+      @include adaptiveValue("column-gap", 60, 10);
+    }
+    @media (max-width: $tablet) {
+      grid-template-rows: repeat(2, auto);
+      @include adaptiveValue("row-gap", 40, 15);
+    }
+  }
+  // .presentation-main__video
+  &__video {
+    display: grid;
+
+    @media (min-width: $tablet) {
+      grid-template-columns: repeat(2, minmax(rem(200), rem(640)));
+      @include adaptiveValue("column-gap", 60, 10);
+    }
+    @media (max-width: $tablet) {
+      grid-template-rows: repeat(2, auto);
+      @include adaptiveValue("row-gap", 40, 15);
+    }
+  }
+}
+
+.photo-presentation {
+  // .photo-presentation__info
+  &__info {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    @include adaptiveValue("row-gap", 60, 20);
+  }
+  // .photo-presentation__title
+  &__title {
+    font-family: "Raleway_Bold";
+    line-height: math.div(50, 32);
+    letter-spacing: 0.1em;
+    color: $mainWhiteColor;
+    white-space: nowrap;
+    @include adaptiveValue("font-size", 32, 14);
+
+    position: relative;
+    z-index: 1;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      background-color: $mainBlueColor;
+    }
+
+    @media (min-width: $tablet) {
+      justify-self: flex-end;
+      margin-top: rem(35);
+      padding: rem(2) rem(35);
+      @include adaptiveValue("left", 80, 15);
+    }
+    @media (max-width: $tablet) {
+      width: 100%;
+      text-align: center;
+    }
+  }
+  // .photo-presentation__text
+  &__text {
+    line-height: 125%;
+    letter-spacing: 0.1em;
+    @include adaptiveValue("font-size", 24, 14);
+
+    @media (min-width: 1440px) {
+      line-height: 1.825;
+    }
+  }
+  // .photo-presentation__photo
+  &__photo {
+    @media (max-width: $tablet) {
+      text-align: center;
+    }
+  }
+}
+
+.video-presentation {
+  // .video-presentation__photo
+  &__photo {
+    position: relative;
+    a {
+      &::after {
+        content: "";
+        position: absolute;
+        width: rem(75);
+        height: rem(85);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%);
+        background-image: url("../img/main-page/play.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+      &:active {
+        &::after {
+          transform: translate(-45%, 5%);
+        }
+      }
+    }
+    @media (max-width: $tablet) {
+      order: 2;
+    }
+  }
+  // .video-presentation__info
+  &__info {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    @include adaptiveValue("row-gap", 60, 20);
+
+    @media (max-width: $tablet) {
+      order: 1;
+    }
+  }
+  // .video-presentation__title
+  &__title {
+    font-family: "Raleway_Bold";
+    line-height: math.div(50, 32);
+    letter-spacing: 0.1em;
+    color: $mainWhiteColor;
+    white-space: nowrap;
+
+    position: relative;
+    z-index: 1;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      background-color: $mainPinkColor;
+    }
+
+    @media (min-width: $tablet) {
+      justify-self: flex-start;
+      margin-top: rem(35);
+      padding: rem(2) rem(35);
+      @include adaptiveValue("right", 80, 15);
+      @include adaptiveValue("font-size", 24, 14);
+    }
+    @media (max-width: $tablet) {
+      width: 100%;
+      text-align: center;
+      @include adaptiveValue("font-size", 32, 14);
+    }
+    @media (max-width: $mobileSmall) {
+      white-space: normal;
+    }
+  }
+  // .video-presentation__text
+  &__text {
+    line-height: 125%;
+    letter-spacing: 0.1em;
+    @include adaptiveValue("font-size", 24, 14);
+
+    @media (min-width: 1440px) {
+      line-height: 1.825;
+    }
+  }
+}
+
+//====MODAL======================================
+.modal {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(53, 53, 53, 0.8);
+  z-index: 10;
+  overflow-x: hidden;
+  overflow-y: auto;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s ease 0s;
+
+  &.open {
+    opacity: 1;
+    visibility: visible;
+  }
+  &.open &__content {
+    transform: scale(1);
+  }
+  // .modal__body
+  &__body {
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 rem(10);
+  }
+  // .modal__content
+  &__content {
+    max-width: rem(800);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0);
+    transition: all 0.5s ease 0s;
+  }
+  // .modal__close
+  &__close {
+    position: absolute;
+    right: 7%;
+    top: rem(-10);
+    img {
+      width: rem(40);
+      height: rem(40);
+    }
+    @media (max-width: $mobileSmall) {
+      right: 6%;
+    }
+  }
+  // .modal__video
+  &__video {
+    text-align: center;
+    width: 80%;
+  }
+}
+
+//====FAQ======================================
+.faq {
+  // .faq__container
+  &__container {
+  }
+  // .faq__content
+  &__content {
+    padding-left: rem(50);
+    @include adaptiveValue("margin-bottom", 40, 20);
+
+    &[open] .faq__question::before {
+      transform: rotate(180deg);
+    }
+  }
+  // .faq__question
+  &__question {
+    position: relative;
+    list-style: none;
+    pointer-events: none;
+
+    font-family: "Raleway_Medium";
+    line-height: math.div(50, 36);
+    letter-spacing: 0.1em;
+    @include adaptiveValue("font-size", 36, 18);
+
+    &::before {
+      content: "";
+      position: absolute;
+      @include adaptiveValue("width", 40, 35);
+      @include adaptiveValue("height", 40, 35);
+      top: 10%;
+      left: rem(-50);
+
+      cursor: pointer;
+      pointer-events: all;
+      background-image: url("../img/main-page/faq_arrow.svg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: 0 0;
+      transition: all 0.5s ease 0s;
+      @media (max-width: $mobile) {
+        top: 0;
+      }
+    }
+  }
+  // .faq__answer
+  &__answer {
+    line-height: 125%;
+    letter-spacing: 0.1em;
+    @include adaptiveValue("font-size", 24, 14);
+    @include adaptiveValue("margin-top", 25, 15);
+    animation: answer 0.5s linear 1;
+
+    @keyframes answer {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    span:not(:last-child) {
+      display: block;
+      margin-bottom: rem(10);
+    }
+  }
+  // .faq__list
+  &__list {
+    @include adaptiveValue("padding-left", 50, 15);
+    li {
+      list-style: disc;
+      @include adaptiveValue("margin-top", 10, 5);
+      @include adaptiveValue("margin-bottom", 10, 5);
+    }
+  }
+}
+
+//====SLIDER======================================
+.sertifications-main {
+  // .sertifications-main__container
+  &__container {
+    position: relative;
+  }
+  // .sertifications-main__quote
+  &__quote {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    @include adaptiveValue("padding-top", 35, 20);
+    q {
+      max-width: rem(685);
+      line-height: 125%;
+      letter-spacing: 0.1em;
+      @include adaptiveValue("font-size", 24, 14);
+      @media (max-width: $mobile) {
+        max-width: 100%;
+      }
+    }
+    q::before {
+      content: "“";
+    }
+    q::after {
+      content: "“";
+    }
+  }
+  // .sertifications-main__slider
+  &__slider {
+    @include adaptiveValue("padding-top", 40, 25);
+  }
+  // .sertifications-main__wrapper
+  &__wrapper {
+  }
+  // .sertifications-main__slide
+  &__slide {
+  }
+  // .sertifications-main__dots
+  &__dots {
+    display: flex;
+    justify-content: center;
+    @include adaptiveValue("padding-top", 60, 30);
+    & .swiper-pagination-bullet {
+      background-color: #fff;
+      border: 1px solid $mainColor;
+    }
+    & .swiper-pagination-bullet-active {
+      background-color: $mainPinkColor;
+      border: none;
+    }
+  }
+  // .sertifications-main__prev
+  &__prev {
+    position: absolute;
+    top: 50%;
+    left: rem(-7);
+    transform: translateY(50%);
+    @include adaptiveValue("width", 48, 40);
+    @include adaptiveValue("height", 48, 40);
+    z-index: 2;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-image: url("../img/sertifications/prev.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    &:active {
+      &::after {
+        transform: translate(-5%, 5%);
+      }
+    }
+  }
+  // .sertifications-main__next
+  &__next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(50%);
+    right: rem(-7);
+    @include adaptiveValue("width", 48, 40);
+    @include adaptiveValue("height", 48, 40);
+    z-index: 2;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-image: url("../img/sertifications/next.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    &:active {
+      &::after {
+        transform: translate(5%, 5%);
+      }
+    }
+  }
+}
+
+//====LOCATION======================================
+.location-main {
+  // .location-main__container
+  &__container {
+  }
+  // .location-main__title
+  &__title {
+    text-align: center;
+    font-family: "Raleway_Bold";
+    line-height: math.div(50, 36);
+    letter-spacing: 0.1em;
+    @include adaptiveValue("font-size", 36, 18);
+  }
+  // .location-main__content
+  &__content {
+    @include adaptiveValue("margin-top", 50, 25);
+    display: grid;
+
+    @media (min-width: $tablet) {
+      grid-template-columns: 1fr minmax(rem(300), rem(600));
+      @include adaptiveValue("column-gap", 100, 20);
+    }
+    @media (max-width: $tablet) {
+      grid-template-rows: repeat(2, auto);
+      @include adaptiveValue("row-gap", 40, 20);
+    }
+  }
+  // .location-main__contacts
+  &__contacts {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    row-gap: rem(30);
+  }
+  // .location-main__requisites
+  &__requisites {
+    @include adaptiveValue("font-size", 24, 14);
+    line-height: math.div(45, 24);
+    letter-spacing: 0.1em;
+    dl:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 30, 20);
+    }
+    dt {
+      font-family: "PT_Sans_Bold";
+      @include adaptiveValue("margin-bottom", 10, 0);
+    }
+    @media (max-width: $tablet) {
+      text-align: center;
+    }
+  }
+  // .location-main__adrdress
+  &__adrdress {
+  }
+  // .location-main__phone
+  &__phone {
+  }
+  // .location-main__social
+  &__social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include adaptiveValue("gap", 85, 30);
+  }
+  // .location-main__social-link
+  &__social-link {
+    @include adaptiveValue("width", 130, 50);
+    @include adaptiveValue("height", 130, 50);
+    img {
+      width: 100%;
+      transition: all 0.5s ease 0s;
+      @media (any-hover: hover) {
+        &:hover {
+          // filter: brightness(0.5);
+          // filter: grayscale(100%) sepia(100%);
+          filter: invert(0.8) sepia(50%);
+        }
+      }
+    }
+  }
+  // .location-main__map
+  &__map {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    a {
+      max-width: rem(800);
+    }
+  }
+}

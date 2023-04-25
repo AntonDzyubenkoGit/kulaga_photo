@@ -1,0 +1,27 @@
+.button {
+  font-family: "Raleway_Bold";
+  color: $mainColor;
+  text-transform: uppercase;
+  @include adaptiveValue("font-size", 24, 16);
+  line-height: math.div(28, 24);
+  letter-spacing: 0.1em;
+
+  display: inline-block;
+  background: transparent;
+  border: 5px solid $mainBrownColor;
+
+  @include adaptiveValue("padding-top", 23, 15);
+  @include adaptiveValue("padding-bottom", 23, 15);
+  @include adaptiveValue("padding-left", 85, 30);
+  @include adaptiveValue("padding-right", 85, 30);
+
+  transition: all 0.5s ease 0s;
+
+  @media (any-hover: hover) {
+    &:hover {
+      background: $mainBrownColor;
+      color: $mainWhiteColor;
+      border: 5px solid $mainColor;
+    }
+  }
+}

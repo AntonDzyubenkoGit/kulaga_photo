@@ -1,0 +1,215 @@
+.page-services {
+  // .page-services__title
+  &__title {
+    @include adaptiveValue("padding-top", 50, 25);
+  }
+
+  // .page-services__container
+  &__container {
+    @include adaptiveValue("padding-top", 60, 30);
+  }
+
+  // .page-services__card
+  &__card {
+    &:not(:first-child) {
+      @include adaptiveValue("margin-top", 50, 25);
+    }
+  }
+}
+
+.card-services {
+  display: grid;
+  @include adaptiveValue("row-gap", 25, 15);
+
+  @media (min-width: rem(1201)) {
+    grid-template-columns: 1fr minmax(auto, rem(565));
+    grid-template-rows: auto 1fr;
+    grid-template-areas: "title image" "content image";
+
+    @include adaptiveValue("column-gap", 25, 10);
+  }
+
+  @media (max-width: rem(1200)) {
+    grid-template-rows: repeat(3, au);
+    grid-template-areas: "title" "image" "content";
+  }
+
+  // .card-services__left
+  &__left {
+    @media (min-width: rem(1201)) {
+      grid-template-columns: minmax(auto, rem(565)) 1fr;
+      grid-template-areas: "image title" "image content";
+    }
+  }
+
+  // .card-services__title
+  &__title {
+    grid-area: title;
+
+    text-align: center;
+    font-family: "Raleway_Regular";
+    line-height: math.div(112, 96);
+    letter-spacing: 0.1em;
+    @include adaptiveValue("font-size", 96, 32);
+
+    @media (min-width: rem(1201)) {
+      @include adaptiveValue("margin-top", 65, 30);
+    }
+  }
+
+  // .card-services__title-mt-2
+  &__title-mt-2 {
+    @media (min-width: rem(1201)) {
+      @include adaptiveValue("margin-top", 0, 0);
+      line-height: math.div(100, 96);
+    }
+  }
+
+  // .card-services__title-small
+  &__title-small {
+    @include adaptiveValue("font-size", 64, 32);
+  }
+
+  // .card-services__content
+  &__content {
+    grid-area: content;
+  }
+
+  // .card-services__info
+  &__info {
+    position: relative;
+    z-index: 10;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 135%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      background: linear-gradient(270deg, rgba(217, 217, 217, 0) 0%, #efefef 77.43%);
+    }
+
+    @media (min-width: rem(1201)) {
+      @include adaptiveValue("padding-top", 97, 45);
+      @include adaptiveValue("padding-bottom", 30, 15);
+      @include adaptiveValue("padding-left", 50, 25);
+      @include adaptiveValue("padding-right", 45, 20);
+    }
+    @media (max-width: rem(1200)) {
+      @include adaptiveValue("padding-top", 30, 15);
+      @include adaptiveValue("padding-bottom", 30, 15);
+      @include adaptiveValue("padding-left", 50, 25);
+      @include adaptiveValue("padding-right", 50, 25);
+    }
+  }
+
+  // .card-services__info-left
+  &__info-left {
+    &::after {
+      background: linear-gradient(90deg, rgba(217, 217, 217, 0) 0%, #efefef 77.43%);
+      transform: translateX(-26%);
+    }
+  }
+
+  // .card-services__info-pb-2
+  &__info-pb-2 {
+    @media (min-width: rem(1201)) {
+      @include adaptiveValue("padding-bottom", 200, 50);
+    }
+  }
+
+  // .card-services__info-pt-2
+  &__info-pt-2 {
+    @media (min-width: rem(1201)) {
+      @include adaptiveValue("padding-top", 40, 20);
+    }
+  }
+
+  // .card-services__list
+  &__list {
+    line-height: 125%;
+    letter-spacing: 0.1em;
+    @include adaptiveValue("font-size", 24, 14);
+    @include adaptiveValue("margin-top", 25, 15);
+  }
+
+  // .card-services__item
+  &__item {
+    list-style: circle;
+
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 20, 10);
+    }
+    &:last-child {
+      @include adaptiveValue("margin-bottom", 30, 15);
+    }
+  }
+
+  // .card-services__item-mb-2
+  &__item-mb-2 {
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 10, 5);
+    }
+    &:last-child {
+      @include adaptiveValue("margin-bottom", 15, 10);
+    }
+  }
+
+  // .card-services__price
+  &__price {
+    text-align: center;
+    font-family: "Raleway_Regular";
+    line-height: math.div(75, 64);
+    letter-spacing: 0.1em;
+    @include adaptiveValue("font-size", 64, 24);
+  }
+
+  // .card-services__image
+  &__image {
+    grid-area: image;
+
+    position: relative;
+    z-index: 2;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color: $mainGreyColor;
+      z-index: -1;
+    }
+    img {
+      max-width: rem(435);
+    }
+
+    @media (min-width: rem(1201)) {
+      @include adaptiveValue("padding-top", 245, 120);
+      @include adaptiveValue("padding-bottom", 170, 80);
+      @include adaptiveValue("padding-left", 65, 30);
+      @include adaptiveValue("padding-right", 65, 30);
+    }
+
+    @media (max-width: rem(1200)) {
+      text-align: center;
+    }
+  }
+
+  // .card-services__image-orange
+  &__image-orange {
+    &::after {
+      background-color: $mainOrangeColor;
+    }
+  }
+
+  // .card-services__image-brown
+  &__image-brown {
+    &::after {
+      background-color: $mainBrownColor;
+    }
+  }
+}

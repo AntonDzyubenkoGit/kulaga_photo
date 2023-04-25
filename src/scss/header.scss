@@ -1,0 +1,78 @@
+.header {
+  background-color: $mainPinkColor;
+  // .header__container
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include adaptiveValue("padding-top", 18, 10);
+    @include adaptiveValue("padding-bottom", 18, 10);
+    @include adaptiveValue("padding-left", 20, 10);
+    @include adaptiveValue("padding-right", 20, 10);
+
+    @media (max-width: $mobile) {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(3, auto);
+      row-gap: rem(15);
+      justify-items: center;
+    }
+  }
+  // .header__logo
+  &__logo {
+    max-width: rem(132);
+    img {
+      max-width: 100%;
+    }
+    @media (max-width: $mobile) {
+      order: 1;
+    }
+  }
+  // .header__navigation
+  &__navigation {
+    display: flex;
+    @include adaptiveValue("column-gap", 50, 20);
+    @media (max-width: $mobile) {
+      order: 3;
+      padding-bottom: rem(5);
+    }
+  }
+  // .header__social
+  &__social {
+    @media (max-width: $mobile) {
+      order: 2;
+    }
+  }
+}
+
+.navigation {
+  letter-spacing: em(1.6, 16);
+  // .navigation__link
+  &__link {
+    font-family: "Raleway_Regular";
+    line-height: math.div(19, 16);
+    @include adaptiveValue("font-size", 16, 12);
+    transition: all 0.5s ease 0s;
+
+    @media (any-hover: hover) {
+      &:hover {
+        text-decoration: underline;
+        color: $mainDarkColor;
+      }
+    }
+  }
+}
+
+.social-icon {
+  display: flex;
+  column-gap: rem(21);
+  // .social-icon__link
+  &__link {
+    transition: transform 0.5s ease 0s;
+    @media (any-hover: hover) {
+      &:hover {
+        transform: scale(1.1, 1.1);
+      }
+    }
+  }
+}

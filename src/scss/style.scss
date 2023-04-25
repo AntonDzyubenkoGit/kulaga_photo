@@ -1,0 +1,74 @@
+@use "sass:math";
+@import "fonts";
+@import "mixins";
+@import "variables";
+@import "null";
+@import "header";
+@import "swiper-bundle";
+@import "button";
+@import "title";
+@import "main-page";
+@import "gallery-page";
+@import "services-page";
+@import "info-page";
+@import "footer";
+
+body {
+  font-weight: 400;
+}
+
+body._lock {
+  overflow: hidden;
+}
+
+.wrapper {
+  overflow: hidden;
+}
+
+.page {
+  background-color: #fff;
+}
+
+.page-main {
+  // .page-main__presentation
+  &__presentation {
+    @include adaptiveValue("padding-top", 100, 40);
+  }
+  // .page-main__faq
+  &__faq {
+    @include adaptiveValue("padding-top", 50, 25);
+  }
+  // .page-main__sertifications
+  &__sertifications {
+    @include adaptiveValue("margin-top", 50, 25);
+    @include adaptiveValue("padding-bottom", 40, 20);
+    background-color: $mainWhiteColor;
+  }
+  // .page-main__location
+  &__location {
+    @include adaptiveValue("padding-top", 50, 25);
+  }
+}
+
+img {
+  width: 100%;
+}
+
+/*
+[class*="-ibg"] {
+  position: relative;
+  img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+  }
+}
+[class*="-ibg_contain"] {
+  img {
+    object-fit: contain;
+  }
+}
+*/

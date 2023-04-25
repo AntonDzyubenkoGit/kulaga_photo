@@ -1,0 +1,90 @@
+.footer {
+  background-color: $mainPinkColor;
+  @include adaptiveValue("padding-top", 35, 15);
+  @include adaptiveValue("padding-bottom", 35, 15);
+  @include adaptiveValue("margin-top", 50, 25);
+
+  // .footer__container
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @media (max-width: $mobile) {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(3, auto);
+      row-gap: rem(15);
+      justify-items: center;
+      margin-bottom: rem(15);
+    }
+  }
+  // .footer__navigation
+  &__navigation {
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: $mobile) {
+      @include adaptiveValue("padding-left", 120, 10);
+      row-gap: rem(20);
+    }
+    @media (max-width: $mobile) {
+      order: 3;
+      flex-direction: row;
+      @include adaptiveValue("column-gap", 50, 20);
+    }
+  }
+  // .footer__logo
+  &__logo {
+    max-width: rem(132);
+    img {
+      max-width: 100%;
+    }
+    @media (max-width: $mobile) {
+      order: 1;
+    }
+  }
+  // .footer__social
+  &__social {
+    @include adaptiveValue("padding-right", 40, 10);
+    @media (max-width: $mobile) {
+      order: 2;
+    }
+  }
+}
+.navigation {
+  // .navigation__link
+  &__link {
+  }
+}
+.social-icon {
+  // .social-icon__link
+  &__link {
+  }
+}
+
+.copyright {
+  font-size: 12px;
+  font-family: "Raleway_Regular";
+  // .copyright__container
+  &__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  // .copyright__symbol
+  &__symbol {
+  }
+  // .copyright__year
+  &__year {
+  }
+  // .copyright__studio
+  &__studio {
+    transition: all 0.5s ease 0s;
+    @media (any-hover: hover) {
+      &:hover {
+        text-decoration: underline;
+        color: $mainDarkColor;
+      }
+    }
+  }
+}
