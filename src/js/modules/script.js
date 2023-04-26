@@ -183,7 +183,7 @@ if (btnsMore.length > 0) {
   }
 }
 
-//===Скрытие галереи фотографий==============================
+//===Отображение галерей с фотографиями==============================
 const previewBtns = document.querySelectorAll(".preview-card__button");
 
 const test = (e) => {
@@ -212,43 +212,3 @@ const test = (e) => {
 previewBtns.forEach((previewBtn) => {
   previewBtn.addEventListener("click", test(previewBtn));
 });
-
-// document.querySelectorAll(".gallery__images").forEach((el) =>)
-
-/*
-const galleries = document.querySelectorAll(".gallery");
-
-if (galleries.length > 0) {
-  const buttonsGalleries = document.querySelectorAll(".preview-card__button ");
-
-  for (let button of buttonsGalleries) {
-    button.addEventListener("click", () => {
-      const currentGallery = button.closest(".gallery");
-      const imagesOfGallery = currentGallery.querySelector(".gallery__images");
-
-      imagesOfGallery.classList.toggle("hidden");
-      button.classList.toggle("fixed");
-
-      if (button.classList.contains("fixed")) {
-        button.innerHTML = "<span>Свернуть</span>";
-      } else {
-        button.innerHTML = "<span>показать ещё</span>";
-      }
-    });
-  }
-}
-*/
-
-/*
-  previewBtn.addEventListener("click", () => {
-      previewBtn.classList.toggle("fixed");
-      previewBtn.innerHTML = "<span>показать ещё</span>";
-    });
-*/
-
-/*
-previewBtn.addEventListener("click", () => {
-      previewBtn.classList.toggle("fixed");
-      previewBtn.innerHTML = "<span>показать ещё</span>";
-    });
-*/

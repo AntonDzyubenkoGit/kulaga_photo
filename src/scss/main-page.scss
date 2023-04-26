@@ -1,10 +1,6 @@
 //===FIRST_SCREEN=============================================================
 .first-screen {
-  // background-image: url("../img/main-page/first_screen.webp");
-  // background-image: url("../img/main-page/1.webp");
-  // background-image: url("../img/main-page/2.webp");
-  // background-image: url("../img/main-page/3.webp");
-  background-image: url("../img/main-page/4.webp");
+  background-image: url("../img/main-page/first_screen_sm.webp");
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -21,13 +17,13 @@
 
   @media (min-width: rem(1440)) {
     background-position: center 25%;
-    background-image: url("../img/main-page/2.webp");
+    background-image: url("../img/main-page/first_screen_xl.webp");
   }
   @media (max-width: rem(1440)) {
     background-position: center;
   }
   @media (max-width: rem(400)) {
-    background-position: 55% center;
+    background-position: 53% center;
   }
 
   // .first-screen__arrow
